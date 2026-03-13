@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOGUE | Minimal Fashion Store</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom CSS (Replacing Bootstrap) */
+        :root {
+            --bg-color: #ffffff;
+            --accent-color: #000000;
+            --text-muted: #6c757d;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--accent-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: white;
+            position: sticky;
+            top: 0;
+            border-bottom: 1px solid #eee;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: black;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            margin-left: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #f8f8f8;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        .btn-shop {
+            background: black;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        /* Product Grid */
+        .container {
+            width: 80%;
+            margin: 50px auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            background: #f1f1f1;
+        }
+
+        .card h6 {
+            margin: 15px 0 5px;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .btn-buy {
+            background: black;
+            color: white;
+            border: 1px solid black;
+            width: 100%;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .btn-buy:hover {
+            background: white;
+            color: black;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 0;
+            border-top: 1px solid #eee;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">VOGUE.</a>
+        <div class="nav-links">
+            <a href="#">COLLECTION</a>
+            <a href="#">ABOUT</a>
+            <a href="#">BAG (0)</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>LESS IS MORE</h1>
+        <p>The 2026 Minimalist Summer Drop is here.</p>
+        <a href="#shop" class="btn-shop">SHOP COLLECTION</a>
+    </header>
+
+    <section id="shop" class="container">
+        <div class="product-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600" alt="Oversized Tee">
+                <h6>Oversized Tee</h6>
+                <p>$35.00</p>
+                <button class="btn-buy">ADD TO BAG</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600" alt="Linen Blazer">
+                <h6>Linen Blazer</h6>
+                <p>$145.00</p>
+                <button class="btn-buy">ADD TO BAG</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600" alt="Structured Tote">
+                <h6>Structured Tote</h6>
+                <p>$85.00</p>
+                <button class="btn-buy">ADD TO BAG</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600" alt="Tailored Pants">
+                <h6>Tailored Pants</h6>
+                <p>$95.00</p>
+                <button class="btn-buy">ADD TO BAG</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>VOGUE. CLOTHING</strong></p>
+        <p>© 2026 Crafted for Elegance.</p>
+    </footer>
+
+</body>
+</html>
