@@ -3,7 +3,7 @@
 A clean and responsive personal portfolio website built using HTML and CSS. This project showcases my skills, academic background, and the projects I have worked on.
 
 Assignment Overview
-This is a single-page portfolio designed to provide a quick look at my professional profile as a Computer Engineering student and aspiring Web Developer.
+This is a single-page portfolio designed to provide a quick look at my professional profile as a Computer Engineering student.
 
  Features
 - Profile Header: Clear introduction with name and role.
@@ -20,5 +20,6 @@ This is a single-page portfolio designed to provide a quick look at my professio
 - Skills: Technical expertise in HTML, CSS, MySQL, and C++.
 - Projects: Highlights of my key academic and research projects.
 - Contact: Quick links to reach out via Email or Phone.
+
 
 
