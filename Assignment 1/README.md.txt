@@ -1,6 +1,6 @@
 HTML Text Formatting Tags Table
 
-This is my first Web Development assignment where I have created a comprehensive table demonstrating various **HTML Text Formatting Tags**.
+This is my first  assignment where I have created a comprehensive table demonstrating various HTML Text Formatting Tags.
 
  Project Description
 The goal of this assignment is to understand how to use HTML tags to style and format text. It showcases how different tags change the appearance of the text on a webpage.
@@ -23,4 +23,5 @@ In this Assignment, I have covered:
 - `<small>` — Small font size.
 - `<del>` — Strikethrough (Deleted) text.
 - `<sub>` & `<sup>` — Subscript and Superscript.
+
 
