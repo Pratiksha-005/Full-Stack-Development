@@ -1,8 +1,8 @@
- Personal Portfolio - Pratiksha Talole
+ Personal Portfolio 
 
-A clean and responsive personal portfolio website built using **HTML5** and **CSS3**. This project showcases my skills, academic background, and the projects I have worked on.
+A clean and responsive personal portfolio website built using HTML and CSS. This project showcases my skills, academic background, and the projects I have worked on.
 
- Overview
+Assignment Overview
 This is a single-page portfolio designed to provide a quick look at my professional profile as a Computer Engineering student and aspiring Web Developer.
 
  Features
@@ -20,4 +20,5 @@ This is a single-page portfolio designed to provide a quick look at my professio
 - Skills: Technical expertise in HTML, CSS, MySQL, and C++.
 - Projects: Highlights of my key academic and research projects.
 - Contact: Quick links to reach out via Email or Phone.
+
 
