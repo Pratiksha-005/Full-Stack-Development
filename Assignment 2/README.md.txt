@@ -13,13 +13,14 @@ This is a single-page portfolio designed to provide a quick look at my professio
 
  Tech Stack
 - HTML: Semantic structure of the page.
-- CSS3: Custom styling, including Google-style font families and card-based layouts.
+- CSS: Custom styling, including Google-style font families and card-based layouts.
 
  Sections Included
 - About Me: My background in Computer Engineering.
 - Skills: Technical expertise in HTML, CSS, MySQL, and C++.
 - Projects: Highlights of my key academic and research projects.
 - Contact: Quick links to reach out via Email or Phone.
+
 
 
 
