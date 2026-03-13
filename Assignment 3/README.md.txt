@@ -10,15 +10,9 @@ VOGUE is a conceptual minimalist e-commerce store. The goal of this project was 
 - Responsive Navigation: A sticky header for easy access to site links.
 - Interactive States: CSS-only hover effects on product cards and buttons for better user engagement.
 
-## 🛠 Tech Stack
-- **HTML5:** Semantic structure for SEO and accessibility.
-- **CSS3:** - **CSS Variables:** For consistent color management.
-  - **Flexbox:** For the navigation and hero alignment.
-  - **CSS Grid:** For the product gallery.
-  - **Transitions:** For smooth hover animations.
-
-## 📂 Project Structure
+ Tech Stack
+- HTML: Semantic structure for SEO and accessibility.
+- CSS: - CSS Variables: For consistent color management.
+  
+ Project Structure
 - `index.html`: Contains the complete structure, content, and internal styling of the landing page.
-
----
-Developed with focus on clean code by **Pratiksha Talole**
