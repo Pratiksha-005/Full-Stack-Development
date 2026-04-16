@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOGUE | Minimal Used Items Store</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --accent-color: #000000;
+            --text-muted: #6c757d;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--accent-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: white;
+            position: sticky;
+            top: 0;
+            border-bottom: 1px solid #eee;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: black;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            margin-left: 20px;
+            font-size: 0.9rem;
+        }
+
+        .hero {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #f8f8f8;
+            padding: 20px;
+        }
+
+        .hero h1 { font-size: 3.5rem; margin: 0; font-weight: 700; }
+
+        .container { width: 80%; margin: 50px auto; }
+
+        /* Form Styling */
+        .form-section {
+            background: #fdfdfd;
+            padding: 40px;
+            border: 1px solid #eee;
+            max-width: 600px;
+            margin: 50px auto;
+        }
+
+        .form-section h2 { text-align: center; margin-bottom: 30px; }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-submit {
+            background: black;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-submit:hover { opacity: 0.8; }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card { text-align: center; border: 1px solid #eee; padding: 10px; }
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+
+        footer { text-align: center; padding: 50px 0; border-top: 1px solid #eee; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">VOGUE.</a>
+        <div class="nav-links">
+            <a href="#shop">COLLECTION</a>
+            <a href="#sell">SELL ITEM</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>REUSE & RECYCLE</h1>
+        <p>Pre-owned fashion, cars, and bikes. Minimalist living.</p>
+    </header>
+
+    <section id="sell" class="form-section">
+        <h2>List an Item for Sale</h2>
+        <form action="/sell" method="POST">
+            <input type="text" name="title" placeholder="Item Name (e.g. Vintage Bike / Silk Shirt)" required>
+            
+            <select name="category" required>
+                <option value="">Select Category</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Bike">Bike</option>
+                <option value="Car">Car</option>
+            </select>
+
+            <input type="number" name="price" placeholder="Price ($)" required>
+            <textarea name="description" placeholder="Item condition and details" rows="4" required></textarea>
+            
+            <input type="text" name="sellerName" placeholder="Your Name" required>
+            <input type="text" name="sellerContact" placeholder="Your Email/Phone" required>
+            
+            <button type="submit" class="btn-submit">POST ITEM NOW</button>
+        </form>
+    </section>
+
+    <section id="shop" class="container">
+        <h2 style="text-align: center;">Featured Collection</h2>
+        <div class="product-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600" alt="Oversized Tee">
+                <h6>Oversized Tee</h6>
+                <p>$35.00</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=600" alt="Motorcycle">
+                <h6>Vintage Cafe Racer</h6>
+                <p>$2,400.00</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="form-section">
+        <h2>Contact Support</h2>
+        <form action="/contact" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="How can we help?" rows="3" required></textarea>
+            <button type="submit" class="btn-submit">SEND MESSAGE</button>
+        </form>
+    </section>
+
+    <footer>
+        <p><strong>VOGUE. MARKETPLACE</strong></p>
+        <p>© 2026 Crafted for a Sustainable Future.</p>
+    </footer>
+
+</body>
+</html>

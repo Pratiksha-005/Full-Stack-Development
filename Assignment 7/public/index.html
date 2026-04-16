@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Feedback Portal</title>
+    <style>
+        body { font-family: sans-serif; background: #f4f4f4; padding: 20px; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #333; }
+        input, textarea, select { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #218838; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Submit Course Feedback</h2>
+        <form action="/submit-feedback" method="POST">
+            <input type="text" name="studentName" placeholder="Full Name" required>
+            <input type="text" name="course" placeholder="Course Name (e.g. Java, Python)" required>
+            <select name="rating">
+                <option value="5">5 Stars - Excellent</option>
+                <option value="4">4 Stars - Very Good</option>
+                <option value="3">3 Stars - Good</option>
+                <option value="2">2 Stars - Average</option>
+                <option value="1">1 Star - Poor</option>
+            </select>
+            <textarea name="comments" placeholder="Your experience..." rows="4" required></textarea>
+            <button type="submit">Submit Review</button>
+        </form>
+    </div>
+</body>
+</html>
