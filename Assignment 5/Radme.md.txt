@@ -1,0 +1,75 @@
+My Professional Portfolio with Backend
+
+This is a Full-Stack Web Development project featuring a personal portfolio website. It allows users to view my skills, projects, and send messages through a contact form that saves data directly into a MongoDB database.
+
+Features
+
+Responsive UI: Clean design using HTML and CSS.
+
+Contact Form: Functional form to capture user inquiries.
+
+Backend: Node.js and Express.js server to handle requests.
+
+Database: MongoDB integration to store contact messages.
+
+Tech Stack
+
+Frontend: HTML5, CSS3
+
+Backend: Node.js, Express.js
+
+Database: MongoDB (Local Server)
+
+Tools: MongoDB Compass, VS Code
+
+Project Structure
+portfolio/
+├── models/
+│   └── Contact.js      (MongoDB Schema)
+├── public/
+│   └── index.html      (Portfolio Frontend)
+├── server.js           (Express Server Logic)
+├── package.json        (Dependencies and Scripts)
+└── README.md           (Project Documentation)
+
+How to Run Locally
+
+Prerequisites
+
+Install Node.js
+
+Install MongoDB Community Server
+
+Install MongoDB Compass
+
+Setup
+
+Clone or download this project folder.
+
+Open the terminal in the project directory.
+
+Install dependencies using: npm install
+
+Run the Project
+
+Start the MongoDB service on your computer.
+
+Run the server using: node server.js
+
+Open your browser and go to: http://localhost:5000
+
+Verify Data
+
+Submit a message through the contact form.
+
+Open MongoDB Compass.
+
+Connect to mongodb://localhost:27017.
+
+Look for portfolioDB to see your messages.
+
+Author
+
+Pratiksha Talole
+
+Computer Engineering Student
