@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroGraph Weather Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen font-sans text-slate-900">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+            <h1 class="text-3xl font-bold text-blue-600">AeroGraph Dash</h1>
+            <div class="flex w-full md:w-auto gap-2">
+                <input type="text" id="cityInput" placeholder="Enter city (e.g. London)" 
+                       class="px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none w-full">
+                <button onclick="getWeatherData()" 
+                        class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+                    Search
+                </button>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <div id="statsCard" class="glass p-6 rounded-2xl shadow-sm lg:col-span-1">
+                <h2 class="text-xl font-semibold mb-4 text-slate-500 uppercase tracking-wide">Current Weather</h2>
+                <div id="currentData">
+                    <p class="text-slate-400">Search for a city to see live data...</p>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 space-y-6">
+                <div class="glass p-6 rounded-2xl shadow-sm">
+                    <h2 class="text-lg font-semibold mb-4">7-Day Temperature Trend (°C)</h2>
+                    <canvas id="tempChart"></canvas>
+                </div>
+                
+                <div class="glass p-6 rounded-2xl shadow-sm">
+                    <h2 class="text-lg font-semibold mb-4">Daily Precipitation Probability (%)</h2>
+                    <canvas id="rainChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let tempChartInstance = null;
+        let rainChartInstance = null;
+
+        async function getWeatherData() {
+            const city = document.getElementById('cityInput').value;
+            if (!city) return alert("Please enter a city name");
+
+            try {
+                // 1. Geocoding: City Name -> Coordinates
+                const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=en&format=json`;
+                const geoRes = await fetch(geoUrl);
+                const geoData = await geoRes.json();
+
+                if (!geoData.results) throw new Error("City not found");
+                const { latitude, longitude, name, country } = geoData.results[0];
+
+                // 2. Weather Data Fetch
+                const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,precipitation_probability_max&current_weather=true&timezone=auto`;
+                const weatherRes = await fetch(weatherUrl);
+                const weatherData = await weatherRes.json();
+
+                updateUI(name, country, weatherData);
+                updateCharts(weatherData.daily);
+
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        function updateUI(city, country, data) {
+            const current = data.current_weather;
+            const container = document.getElementById('currentData');
+            container.innerHTML = `
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold">${city}, ${country}</h3>
+                    <div class="text-6xl font-black text-blue-600 my-4">${Math.round(current.temperature)}°</div>
+                    <p class="text-slate-500 text-lg">Wind Speed: ${current.windspeed} km/h</p>
+                </div>
+            `;
+        }
+
+        function updateCharts(daily) {
+            const labels = daily.time.map(date => {
+                return new Date(date).toLocaleDateString('en-US', { weekday: 'short' });
+            });
+
+            // Destroy existing charts to prevent overlap
+            if (tempChartInstance) tempChartInstance.destroy();
+            if (rainChartInstance) rainChartInstance.destroy();
+
+            // Temp Chart
+            const ctxTemp = document.getElementById('tempChart').getContext('2d');
+            tempChartInstance = new Chart(ctxTemp, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Max Temp',
+                        data: daily.temperature_2m_max,
+                        borderColor: '#2563eb',
+                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: { responsive: true }
+            });
+
+            // Rain Chart
+            const ctxRain = document.getElementById('rainChart').getContext('2d');
+            rainChartInstance = new Chart(ctxRain, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Rain Probability (%)',
+                        data: daily.precipitation_probability_max,
+                        backgroundColor: '#38bdf8',
+                        borderRadius: 8
+                    }]
+                },
+                options: { responsive: true, scales: { y: { beginAtZero: true, max: 100 } } }
+            });
+        }
+    </script>
+</body>
+</html>
